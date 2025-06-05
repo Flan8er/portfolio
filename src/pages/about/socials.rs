@@ -30,22 +30,22 @@ pub fn SocialIcons() -> impl IntoView {
                 href="https://github.com/Flan8er"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="social-button p-2 hover:scale-110 transition"
+                class="social-button p-2 hover:scale-110 transition origin-center"
             >
                 <Icon icon=icondata::ChGithub width="24px" height="24px" style="transition: color 0.2s ease;" />
             </a>
 
             <a
-                href="https://linkedin.com/in/Flan8er"
+                href="https://linkedin.com/in/casey-vaughn-1a8ba72b2"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="social-button p-2 hover:scale-110 transition"
+                class="social-button p-2 hover:scale-110 transition origin-center"
             >
                 <Icon icon=icondata::FiLinkedin width="24px" height="24px" style="transition: color 0.2s ease;" />
             </a>
 
             <button
-                class="social-button p-2 hover:scale-110 transition relative"
+                class="social-button p-2 hover:scale-110 transition relative origin-center"
                 on:click=copy_email
             >
                 <Icon icon=icondata::FiMail width="24px" height="24px" style="transition: color 0.2s ease;" />
