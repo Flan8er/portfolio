@@ -9,7 +9,7 @@ use strum::IntoEnumIterator;
 
 use crate::{
     components::{page::Page, timeline::Timeline},
-    pages::{about::page::AboutMe, timeline::page::Timeline},
+    pages::{about::page::AboutMe, intro::page::Intro, timeline::page::Timeline},
 };
 
 #[component]
@@ -34,11 +34,9 @@ fn Home() -> impl IntoView {
             <ScrollProvider>
                 <Timeline/>
 
-                <AboutMe/>
+                <Intro/>
 
-                <Page>
-                    <div class="w-full h-full bg-blue-300"></div>
-                </Page>
+                <AboutMe/>
 
                 <Page>
                     <div class="w-full h-full bg-orange-300"></div>
@@ -85,6 +83,8 @@ pub fn ScrollProvider(children: Children) -> impl IntoView {
         directions,
         ..
     } = use_scroll(el);
+
+    provide_context(y);
 
     Effect::new(move |_| {
         let scroll_top = y.get();
