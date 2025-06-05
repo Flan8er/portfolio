@@ -7,20 +7,32 @@ const EMAIL: &str = "casey.vaughn9@aol.com";
 #[component]
 pub fn SocialIcons() -> impl IntoView {
     let copy_success = RwSignal::new(false);
+    let icon_style = Signal::derive({
+        move || {
+            if copy_success.get() {
+                "transition: color 0.2s ease; color: #22c55e;".to_string()
+            } else {
+                "transition: color 0.2s ease;".to_string()
+            }
+        }
+    });
 
     let copy_email = move |_| {
-        let _ = window()
-            .unwrap()
-            .navigator()
-            .clipboard()
-            // .unwrap()
-            .write_text(EMAIL);
+        // Attempt to copy to clipboard
+        match window() {
+            Some(window) => {
+                let _ = window.navigator().clipboard().write_text(EMAIL);
+            }
+            None => return,
+        };
+
+        // Alert success if copy command didn't fail
         copy_success.set(true);
 
-        // Optional: reset success message after a delay
+        // Reset success message after a delay
         set_timeout(
             move || copy_success.set(false),
-            std::time::Duration::from_secs(2),
+            std::time::Duration::from_millis(500),
         );
     };
 
@@ -45,16 +57,10 @@ pub fn SocialIcons() -> impl IntoView {
             </a>
 
             <button
-                class="social-button p-2 hover:scale-110 transition relative origin-center"
+                class="social-button p-2 hover:scale-110 transition origin-center"
                 on:click=copy_email
             >
-                <Icon icon=icondata::FiMail width="24px" height="24px" style="transition: color 0.2s ease;" />
-
-                {move || if copy_success.get() {
-                    view! { <span class="text-sm text-green-400 absolute right-1/2 translate-x-1/2">"Copied!"</span> }.into_any()
-                } else {
-                    view!{<></>}.into_any()
-                }}
+                <Icon icon=icondata::LuMail width="24px" height="24px" style=icon_style />
             </button>
         </span>
     }

@@ -13,6 +13,8 @@ leptos_icons = { version = "0.5" }
 icondata = { version = "0.5" }                                      # https://carloskiki.github.io/icondata/
 leptos-use = { version = "0.15.7", features = ["use_window_size"] }
 web-sys = { version = "0.3" }
+strum = "0.26"
+strum_macros = "0.26"
 
 # gloo-net = { version = "0.2", features = ["http"] }
 # log = "0.4"
