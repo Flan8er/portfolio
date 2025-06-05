@@ -5,7 +5,10 @@ use leptos_router::{
     path,
 };
 
-use crate::{components::page::Page, pages::about::page::AboutMe};
+use crate::{
+    components::page::Page,
+    pages::{about::page::AboutMe, timeline::page::Timeline},
+};
 
 #[component]
 pub fn App() -> impl IntoView {
@@ -24,6 +27,7 @@ pub fn App() -> impl IntoView {
 fn Home() -> impl IntoView {
     view! {
         <main class="text-center overflow-y-auto">
+            <Timeline/>
             <AboutMe/>
 
             <Page>
