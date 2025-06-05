@@ -139,34 +139,10 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
-        champagne1: {
-          "0%": { transform: "translate(0, 0) scale(1)", opacity: "1" },
-          "100%": {
-            transform: "translate(-80px, -180px) scale(0.3)",
-            opacity: "0",
-          },
-        },
-        champagne2: {
-          "0%": { transform: "translate(0, 0) scale(1)", opacity: "1" },
-          "100%": {
-            transform: "translate(-100px, -200px) scale(0.3)",
-            opacity: "0",
-          },
-        },
-        champagne3: {
-          "0%": { transform: "translate(0, 0) scale(1)", opacity: "1" },
-          "100%": {
-            transform: "translate(-120px, -170px) scale(0.3)",
-            opacity: "0",
-          },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        champagne1: "champagne1 1.5s ease-out infinite",
-        champagne2: "champagne2 1.5s ease-out infinite",
-        champagne3: "champagne3 1.5s ease-out infinite",
       },
     },
   },

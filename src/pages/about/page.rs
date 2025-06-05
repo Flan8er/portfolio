@@ -1,7 +1,6 @@
 use leptos::{html::Div, prelude::*};
-use web_sys::wasm_bindgen::JsCast;
 
-use crate::components::page::Page;
+use crate::components::{page::Page, scroll::compute_scroll_animation_progress};
 
 #[component]
 pub fn AboutMe() -> impl IntoView {
@@ -11,36 +10,14 @@ pub fn AboutMe() -> impl IntoView {
     let right_style = RwSignal::new(String::new());
 
     Effect::new(move |_| {
-        let Some(el_node) = el.get() else { return };
-        let Ok(el) = el_node.dyn_into::<web_sys::Element>() else {
+        let scroll_y = parent_scroll.get();
+        let Some(progress) = compute_scroll_animation_progress(&el, scroll_y, 0.3, 0.9) else {
             return;
         };
 
-        let scroll_y = parent_scroll.get();
-        let el_offset_top = el.get_bounding_client_rect().top() + scroll_y;
-        let el_height = el.scroll_height() as f64;
-        let viewport_height = window()
-            .inner_height()
-            .ok()
-            .and_then(|v| v.as_f64())
-            .unwrap_or(1.0);
-
-        let start_threshold = 0.3;
-        let end_threshold = 0.7;
-
-        // How far the top of the element is from the top of the viewport
-        let distance_from_top = el_offset_top - scroll_y;
-
-        // How much of the element is scrolled into view (0.0 to 1.0)
-        let visible_ratio = ((viewport_height - distance_from_top) / el_height).clamp(0.0, 1.0);
-
-        // Normalize to 0–1 animation progress based on scroll thresholds
-        let anim_progress =
-            ((visible_ratio - start_threshold) / (end_threshold - start_threshold)).clamp(0.0, 1.0);
-
-        let translate_left = (1.0 - anim_progress) * -100.0;
-        let translate_right = (1.0 - anim_progress) * 100.0;
-        let opacity = anim_progress;
+        let translate_left = (1.0 - progress) * -100.0;
+        let translate_right = (1.0 - progress) * 100.0;
+        let opacity = progress;
 
         left_style.set(format!(
             "transform: translateX({}%) scale(1); opacity: {}; transition: all 0.4s ease-out;",
@@ -56,7 +33,7 @@ pub fn AboutMe() -> impl IntoView {
         <Page>
             <div
                 node_ref=el
-                class="w-full h-full flex items-center justify-center relative bg-purple-600/10"
+                class="w-full h-full flex items-center justify-center relative bg-gradient-to-br from-purple-600/10 to-[rgba(183,45,177,0.1)]"
             >
                 <div class="max-w-6xl w-full px-8 grid md:grid-cols-2 gap-12 items-center z-10">
                     <div style=move || left_style.get()>

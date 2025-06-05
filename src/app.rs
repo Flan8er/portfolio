@@ -9,7 +9,9 @@ use strum::IntoEnumIterator;
 
 use crate::{
     components::{page::Page, timeline::Timeline},
-    pages::{about::page::AboutMe, intro::page::Intro, timeline::page::Timeline},
+    pages::{
+        about::page::AboutMe, intro::page::Intro, skills::page::Skills, timeline::page::Timeline,
+    },
 };
 
 #[component]
@@ -38,9 +40,7 @@ fn Home() -> impl IntoView {
 
                 <AboutMe/>
 
-                <Page>
-                    <div class="w-full h-full bg-orange-300"></div>
-                </Page>
+                <Skills/>
 
                 <Page>
                     <div class="w-full h-full bg-green-300"></div>
