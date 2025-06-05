@@ -1,4 +1,10 @@
+use leptos::prelude::*;
 use strum_macros::EnumIter;
+
+use crate::{
+    components::page::Page,
+    pages::{about::page::AboutMe, intro::page::Intro, skills::page::Skills},
+};
 
 #[derive(EnumIter, Clone, Copy, PartialEq, Eq, Default)]
 pub enum Timeline {
@@ -10,6 +16,7 @@ pub enum Timeline {
     TwentyThree,
     TwentyFour,
     TwentyFive,
+    Appendix,
 }
 
 impl Timeline {
@@ -22,6 +29,49 @@ impl Timeline {
             Self::TwentyThree => String::from("2023"),
             Self::TwentyFour => String::from("2024"),
             Self::TwentyFive => String::from("2025"),
+            Self::Appendix => String::from("Appendix"),
+        }
+    }
+
+    pub fn render(&self) -> impl IntoView {
+        match self {
+            Self::Intro => view! {<Intro/>}.into_any(),
+            Self::About => view! {<AboutMe/>}.into_any(),
+            Self::Skills => view! {<Skills/>}.into_any(),
+            Self::TwentyTwo => view! {
+                <Page>
+                    <div class="w-full h-full bg-green-300"></div>
+                </Page>
+            }
+            .into_any(),
+            Self::TwentyThree => view! {
+                <Page>
+                    <div class="w-full h-full bg-cyan-300"></div>
+                </Page>
+            }
+            .into_any(),
+            Self::TwentyFour => view! {
+                <Page>
+                    <div class="w-full h-full bg-slate-600"></div>
+                </Page>
+            }
+            .into_any(),
+            Self::TwentyFive => view! {
+                <Page>
+                    <div class="w-full h-full bg-zinc-600"></div>
+                </Page>
+            }
+            .into_any(),
+            Self::Appendix => view! {
+                <Page>
+                    <div>
+                        "This entire app was built using the leptos frame work"
+                        "Third wall image"
+                        "Want to check out the source code? I'll leave a link to it here."
+                    </div>
+                </Page>
+            }
+            .into_any(),
         }
     }
 }

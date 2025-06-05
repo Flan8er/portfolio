@@ -7,12 +7,7 @@ use leptos_router::{
 use leptos_use::{use_scroll, UseScrollReturn};
 use strum::IntoEnumIterator;
 
-use crate::{
-    components::{page::Page, timeline::Timeline},
-    pages::{
-        about::page::AboutMe, intro::page::Intro, skills::page::Skills, timeline::page::Timeline,
-    },
-};
+use crate::{components::timeline::Timeline, pages::timeline::page::Timeline};
 
 #[component]
 pub fn App() -> impl IntoView {
@@ -36,27 +31,11 @@ fn Home() -> impl IntoView {
             <ScrollProvider>
                 <Timeline/>
 
-                <Intro/>
-
-                <AboutMe/>
-
-                <Skills/>
-
-                <Page>
-                    <div class="w-full h-full bg-green-300"></div>
-                </Page>
-
-                <Page>
-                    <div class="w-full h-full bg-cyan-300"></div>
-                </Page>
-
-                <Page>
-                    <div class="w-full h-full bg-slate-600"></div>
-                </Page>
-
-                <Page>
-                    <div class="w-full h-full bg-zinc-600"></div>
-                </Page>
+                {
+                    Timeline::iter()
+                        .map(|section| section.render())
+                        .collect_view()
+                }
             </ScrollProvider>
         </main>
     }
