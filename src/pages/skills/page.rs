@@ -85,7 +85,7 @@ pub fn Skills() -> impl IntoView {
 
     view! {
         <Page>
-            <div node_ref=el class="w-full h-full flex items-center justify-center bg-gradient-to-br from-[rgba(183,45,177,0.1)] to-pink-600/10">
+            <div node_ref=el class="w-full h-full flex items-center justify-center bg-gradient-to-b from-[rgba(183,45,177,0.1)] to-pink-600/10">
                 <div class="max-w-4xl px-8 z-10">
                     <h2 class="text-5xl font-bold mb-12 text-center bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
                         "Skills & Technologies"

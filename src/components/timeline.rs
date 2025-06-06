@@ -3,7 +3,12 @@ use strum_macros::EnumIter;
 
 use crate::{
     components::page::Page,
-    pages::{about::page::AboutMe, intro::page::Intro, skills::page::Skills},
+    pages::{
+        about::page::AboutMe,
+        intro::page::Intro,
+        skills::page::Skills,
+        timeline::{twenty_three::TwentyTwentyThree, twenty_two::TwentyTwentyTwo},
+    },
 };
 
 #[derive(EnumIter, Clone, Copy, PartialEq, Eq, Default)]
@@ -38,18 +43,8 @@ impl Timeline {
             Self::Intro => view! {<Intro/>}.into_any(),
             Self::About => view! {<AboutMe/>}.into_any(),
             Self::Skills => view! {<Skills/>}.into_any(),
-            Self::TwentyTwo => view! {
-                <Page>
-                    <div class="w-full h-full bg-green-300"></div>
-                </Page>
-            }
-            .into_any(),
-            Self::TwentyThree => view! {
-                <Page>
-                    <div class="w-full h-full bg-cyan-300"></div>
-                </Page>
-            }
-            .into_any(),
+            Self::TwentyTwo => view! {<TwentyTwentyTwo/>}.into_any(),
+            Self::TwentyThree => view! {<TwentyTwentyThree/>}.into_any(),
             Self::TwentyFour => view! {
                 <Page>
                     <div class="w-full h-full bg-slate-600"></div>

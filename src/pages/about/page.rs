@@ -33,7 +33,7 @@ pub fn AboutMe() -> impl IntoView {
         <Page>
             <div
                 node_ref=el
-                class="w-full h-full flex items-center justify-center relative bg-gradient-to-br from-purple-600/10 to-[rgba(183,45,177,0.1)]"
+                class="w-full h-full flex items-center justify-center relative bg-gradient-to-b from-purple-600/10 to-[rgba(183,45,177,0.1)]"
             >
                 <div class="max-w-6xl w-full px-8 grid md:grid-cols-2 gap-12 items-center z-10">
                     <div style=move || left_style.get()>
@@ -42,7 +42,7 @@ pub fn AboutMe() -> impl IntoView {
                         </h2>
 
                         <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                            "I’m a full-stack developer who cares a lot about making things that are both functional and thoughtfully designed. I’ve been at this for about 5 years now — building clean interfaces, shipping real products, and fine-tuning every pixel and line of logic along the way."
+                            "I’m a full-stack developer who cares a lot about making things that are both functional and thoughtfully designed. I’ve been at this for about 5 years now — building clean interfaces, shipping real products, and fine-tuning every pixel and line of code along the way."
                         </p>
 
                         <p class="text-lg text-gray-300 leading-relaxed">
