@@ -28,7 +28,7 @@ pub fn TwentyTwentyTwo() -> impl IntoView {
 
                     </div>
 
-                    <div class="flex justify-center items-center" > // style=move || right_style.get()
+                    <div class="flex justify-center items-center" >
                         <img
                             src="img/WOTrack.png"
                             alt="Casey popping champagne"

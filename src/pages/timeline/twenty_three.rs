@@ -77,18 +77,6 @@ pub fn TwentyTwentyThree() -> impl IntoView {
 
                     </div>
 
-                    // <div class="min-w-[600px] max-w-[600px] min-h-[400px] max-h-[400px] flex flex-col justify-center items-center" >
-                    //     <img
-                    //         src={
-                    //             let photos = photos.clone();
-                    //             move || format!("img/{}", photos[active_photo.get() as usize])
-                    //         }
-                    //         alt="Casey popping champagne"
-                    //         class="w-fit h-fit object-cover relative z-10"
-                    //     />
-
-                    //     <Navigator index=active_photo length=photos.len() class="mt-auto"/>
-                    // </div>
                     <div class="w-[600px] h-[500px] relative flex flex-col items-center justify-between rounded-md overflow-hidden">
                         <div class="absolute inset-0">
                             <img
