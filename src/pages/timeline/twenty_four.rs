@@ -9,7 +9,7 @@ pub fn TwentyTwentyFour() -> impl IntoView {
         String::from("Labelize1.png"),
         String::from("Labelize2.png"),
         String::from("Labelize3.png"),
-        String::from("Limitfab.png"),
+        String::from("LimitFab.png"),
         String::from("RRT.png"),
     ];
 
