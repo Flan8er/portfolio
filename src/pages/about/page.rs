@@ -42,7 +42,7 @@ pub fn AboutMe() -> impl IntoView {
                         </h2>
 
                         <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                            "I’m a full-stack developer who cares a lot about making things that are both functional and thoughtfully designed. I’ve been at this for about 5 years now — building clean interfaces, shipping real products, and fine-tuning every pixel and line of code along the way."
+                            "I’m a full-stack developer who cares a lot about making things that are both functional and thoughtfully designed. I’ve been at this for about 4 years now — building clean interfaces, shipping real products, and fine-tuning every pixel and line of code along the way."
                         </p>
 
                         <p class="text-lg text-gray-300 leading-relaxed">
@@ -59,7 +59,7 @@ pub fn AboutMe() -> impl IntoView {
 
                             <img
                                 src="img/CaseyVaughnUT-148.jpg"
-                                alt="Casey popping champagne"
+                                alt=""
                                 class="w-full h-full object-cover rounded-full relative z-10"
                             />
                         </div>

@@ -7,7 +7,10 @@ use crate::{
         about::page::AboutMe,
         intro::page::Intro,
         skills::page::Skills,
-        timeline::{twenty_three::TwentyTwentyThree, twenty_two::TwentyTwentyTwo},
+        timeline::{
+            twenty_four::TwentyTwentyFour, twenty_three::TwentyTwentyThree,
+            twenty_two::TwentyTwentyTwo,
+        },
     },
 };
 
@@ -45,12 +48,7 @@ impl Timeline {
             Self::Skills => view! {<Skills/>}.into_any(),
             Self::TwentyTwo => view! {<TwentyTwentyTwo/>}.into_any(),
             Self::TwentyThree => view! {<TwentyTwentyThree/>}.into_any(),
-            Self::TwentyFour => view! {
-                <Page>
-                    <div class="w-full h-full bg-slate-600"></div>
-                </Page>
-            }
-            .into_any(),
+            Self::TwentyFour => view! {<TwentyTwentyFour/>}.into_any(),
             Self::TwentyFive => view! {
                 <Page>
                     <div class="w-full h-full bg-zinc-600"></div>

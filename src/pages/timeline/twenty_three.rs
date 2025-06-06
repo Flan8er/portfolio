@@ -84,7 +84,7 @@ pub fn TwentyTwentyThree() -> impl IntoView {
                                     let photos = photos.clone();
                                     move || format!("img/{}", photos[active_photo.get() as usize])
                                 }
-                                alt="Casey popping champagne"
+                                alt=""
                                 class="w-full h-full object-contain transition-all duration-300"
                             />
                         </div>
