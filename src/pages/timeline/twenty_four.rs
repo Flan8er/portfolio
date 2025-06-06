@@ -1,4 +1,4 @@
-use leptos::{html::Div, prelude::*};
+use leptos::prelude::*;
 use leptos_use::use_interval_fn;
 
 use crate::components::page::Page;

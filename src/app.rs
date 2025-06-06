@@ -14,7 +14,7 @@ pub fn App() -> impl IntoView {
     provide_meta_context();
 
     view! {
-        <Router>
+        <Router base="/portfolio">
             <Routes fallback=|| "Route not found...">
                 <Route path=path!("") view=Home />
             </Routes>
