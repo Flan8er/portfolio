@@ -16,9 +16,6 @@ pub fn TwentyTwentyFour() -> impl IntoView {
             <div
                 class="w-full h-full flex items-center justify-center relative bg-gradient-to-b from-[rgba(183,46,176,0.15)] to-[rgba(165,49,205,0.175)]"
             >
-            // <div
-            //     class="w-full h-full flex items-center justify-center relative"
-            // >
                 <div class="max-w-6xl w-full h-full px-8 grid md:grid-rows-2 items-center z-10">
                     <div>
                         <h2 class="text-5xl font-bold mb-8 leading-tight bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">

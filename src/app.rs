@@ -88,13 +88,3 @@ pub fn ScrollProvider(children: Children) -> impl IntoView {
         </div>
     }
 }
-
-#[component]
-pub fn ThirdWall() -> impl IntoView {
-    view! {
-        <span >
-            <p>"This entire app was built in"</p>
-            <a>"Leptos"</a>
-        </span>
-    }
-}

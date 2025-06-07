@@ -3,18 +3,8 @@ use leptos_use::use_interval_fn;
 
 use crate::components::page::Page;
 
-// from-[rgba(165,49,205,0.175)] to-[rgba(147,51,234,0.2)]
 #[component]
 pub fn TwentyTwentyFive() -> impl IntoView {
-    // let photos: [String; 7] = [
-    //     String::from("Meteorite1.png"),
-    //     String::from("Meteorite2.png"),
-    //     String::from("Meteorite3.png"),
-    //     String::from("Meteorite4.png"),
-    //     String::from("Meteorite5.png"),
-    //     String::from("Meteorite6.png"),
-    //     String::from("Meteorite7.png"),
-    // ];
     let photos = [
         "Meteorite1.png",
         "Meteorite2.png",

@@ -1,16 +1,14 @@
 use leptos::prelude::*;
 use strum_macros::EnumIter;
 
-use crate::{
-    components::page::Page,
-    pages::{
-        about::page::AboutMe,
-        intro::page::Intro,
-        skills::page::Skills,
-        timeline::{
-            twenty_five::TwentyTwentyFive, twenty_four::TwentyTwentyFour,
-            twenty_three::TwentyTwentyThree, twenty_two::TwentyTwentyTwo,
-        },
+use crate::pages::{
+    about::page::AboutMe,
+    appendix::page::Appendix,
+    intro::page::Intro,
+    skills::page::Skills,
+    timeline::{
+        twenty_five::TwentyTwentyFive, twenty_four::TwentyTwentyFour,
+        twenty_three::TwentyTwentyThree, twenty_two::TwentyTwentyTwo,
     },
 };
 
@@ -50,16 +48,7 @@ impl Timeline {
             Self::TwentyThree => view! {<TwentyTwentyThree/>}.into_any(),
             Self::TwentyFour => view! {<TwentyTwentyFour/>}.into_any(),
             Self::TwentyFive => view! {<TwentyTwentyFive/>}.into_any(),
-            Self::Appendix => view! {
-                <Page>
-                    <div>
-                        "This entire app was built using the leptos frame work"
-                        "Third wall image"
-                        "Want to check out the source code? I'll leave a link to it here."
-                    </div>
-                </Page>
-            }
-            .into_any(),
+            Self::Appendix => view! {<Appendix/>}.into_any(),
         }
     }
 }

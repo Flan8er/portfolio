@@ -16,14 +16,17 @@ pub fn TwentyTwentyTwo() -> impl IntoView {
                         </h2>
 
                         <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                            "My original path lead me to getting my degree in mechanical engineering - this was my passion since sophomore year of high school. A short internship duing my junior year of college quickly changed that, however. "
-                            "My mentor stressed the importance, as a Mechainical Engineer, the be able to design machines and then, on top of that, to have the ability to develop the software that runs them. "
-                            "And that single conversation is where this journey began."
+                            "My original path lead me to getting my degree in mechanical engineering — this was my passion since sophomore year of high school.
+                            A short internship duing my junior year of college quickly changed that, however.
+                            My mentor stressed the importance, as a Mechainical Engineer, the be able to design machines and then, on top of that,
+                            to have the ability to develop the software that runs them. And that single conversation is where this journey began."
                         </p>
 
                         <p class="text-lg text-gray-300 leading-relaxed">
-                            "Getting started in app development I did what any sane person would do - go to Python. My senior year of college consisted of using it for coursework and the occasional spontaneous inspiration to make a workout tracking app. "
-                            "It wasn't the most beautiful, but to me it was perfect. It was something tangable that I made from nothing. It was enough to say \"This is what I wan't to do.\""
+                            "Getting started in app development I did what any sane person would do — go to Python.
+                            My senior year of college consisted of using it for coursework and the occasional spontaneous inspiration to make a workout tracking app.
+                            It wasn't the most beautiful, but to me it was perfect. It was something tangable that I made from nothing.
+                            It was enough to say \"This is what I wan't to do.\""
                         </p>
 
                     </div>
