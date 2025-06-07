@@ -8,8 +8,8 @@ use crate::{
         intro::page::Intro,
         skills::page::Skills,
         timeline::{
-            twenty_four::TwentyTwentyFour, twenty_three::TwentyTwentyThree,
-            twenty_two::TwentyTwentyTwo,
+            twenty_five::TwentyTwentyFive, twenty_four::TwentyTwentyFour,
+            twenty_three::TwentyTwentyThree, twenty_two::TwentyTwentyTwo,
         },
     },
 };
@@ -49,12 +49,7 @@ impl Timeline {
             Self::TwentyTwo => view! {<TwentyTwentyTwo/>}.into_any(),
             Self::TwentyThree => view! {<TwentyTwentyThree/>}.into_any(),
             Self::TwentyFour => view! {<TwentyTwentyFour/>}.into_any(),
-            Self::TwentyFive => view! {
-                <Page>
-                    <div class="w-full h-full bg-zinc-600"></div>
-                </Page>
-            }
-            .into_any(),
+            Self::TwentyFive => view! {<TwentyTwentyFive/>}.into_any(),
             Self::Appendix => view! {
                 <Page>
                     <div>

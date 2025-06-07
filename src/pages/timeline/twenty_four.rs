@@ -1,31 +1,15 @@
 use leptos::prelude::*;
-use leptos_use::use_interval_fn;
 
 use crate::components::page::Page;
 
 #[component]
 pub fn TwentyTwentyFour() -> impl IntoView {
-    let photos: [String; 5] = [
+    let photos: [String; 4] = [
         String::from("Labelize1.png"),
         String::from("Labelize2.png"),
         String::from("Labelize3.png"),
         String::from("LimitFab.png"),
-        String::from("RRT.png"),
     ];
-
-    let active_photo: RwSignal<u8> = RwSignal::new(0);
-
-    use_interval_fn(
-        {
-            let photo_count = photos.len() as u8;
-            move || {
-                active_photo.update(|c| {
-                    *c = (*c + 1) % photo_count;
-                });
-            }
-        },
-        2000,
-    );
 
     view! {
         <Page>
@@ -35,7 +19,7 @@ pub fn TwentyTwentyFour() -> impl IntoView {
             // <div
             //     class="w-full h-full flex items-center justify-center relative"
             // >
-                <div class="max-w-6xl w-full px-8 grid md:grid-cols-2 gap-12 items-center z-10">
+                <div class="max-w-6xl w-full h-full px-8 grid md:grid-rows-2 items-center z-10">
                     <div>
                         <h2 class="text-5xl font-bold mb-8 leading-tight bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                             "Off to the Races"
@@ -51,26 +35,53 @@ pub fn TwentyTwentyFour() -> impl IntoView {
                         <p class="text-lg text-gray-300 leading-relaxed">
                             "The contracts were relatively tame, but in numbers it was definetely more work than I initially thought. "
                             "A few indi-game proof of concepts, web apps and internal company software. I was finally able to operate wide open, "
-                            "explore every avenue and scratch every itch. I even got back to my roots as a Mechanical Engineer on one..."
+                            "explore every avenue and scratch every itch. I even got back to my roots as a Mechanical Engineer on one developing a full carbon fiber steering wheel!"
                         </p>
 
-                        <p class="text-lg text-gray-300 leading-relaxed">
-                            "(Code)dependent, LimitFab Then, the big one."
-                        </p>
-
+                        // <p class="text-lg text-gray-300 leading-relaxed">
+                        //     "(Code)dependent, LimitFab Then, the big one."
+                        // </p>
                     </div>
 
-                    <div class="w-[600px] h-[500px] relative flex flex-col items-center justify-between rounded-md overflow-hidden">
-                        <div class="absolute inset-0">
-                            <img
-                                src={
+                    <div class="overflow-hidden py-[20px] animation-container">
+                      <div class="flex whitespace-nowrap w-max">
+                        <div class="inline-block animate-slide">
+                            <For
+                                each={
                                     let photos = photos.clone();
-                                    move || format!("img/{}", photos[active_photo.get() as usize])
+                                    move || photos.clone()
                                 }
-                                alt=""
-                                class="w-full h-full object-contain transition-all duration-300"
+                                key=|photo| format!("{}", photo)
+                                children=move |photo| {
+                                    let photo = format!("img/{}", photo);
+                                    view! {
+                                        <img
+                                            src=photo
+                                            alt=""
+                                            class="h-[400px] mx-10 inline-block"
+                                        />
+                                    }
+                                }
                             />
                         </div>
+
+                        <div class="inline-block animate-slide">
+                            <For
+                                each=move || photos.clone()
+                                key=|photo| format!("{}", photo)
+                                children=move |photo| {
+                                    let photo = format!("img/{}", photo);
+                                    view! {
+                                        <img
+                                            src=photo
+                                            alt=""
+                                            class="h-[400px] mx-10 inline-block"
+                                        />
+                                    }
+                                }
+                            />
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>

@@ -15,6 +15,7 @@ pub fn App() -> impl IntoView {
 
     view! {
         <Router base="/portfolio">
+        // <Router>
             <Routes fallback=|| "Route not found...">
                 <Route path=path!("") view=Home />
             </Routes>
