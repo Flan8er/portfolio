@@ -81,7 +81,7 @@ pub fn ScrollProvider(children: Children) -> impl IntoView {
     view! {
         <div
             node_ref=el
-            class="w-full h-full overflow-scroll"
+            class="w-full h-full overflow-scroll overflow-x-hidden"
         >
             {children()}
         </div>
