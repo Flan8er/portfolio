@@ -29,50 +29,67 @@ pub fn TwentyTwentyThree() -> impl IntoView {
                         </h2>
 
                         <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                            "After 5 iterations in just as many languages and frameworks, I became eager to work on something other than a workout tracking app. "
-                            "At this point, I was working a full-time job as a Mechanical Engineer sticking my nose into any software opportunities that would come up, "
-                            "but I felt I could do more to lay a path to becoming a full-time software developer. So, after hours I would come home to build my own software company. "
-                            "Looking back I had such naive ambition - stay tuned as that's a reoccurring theme - but after several months I had created something I could hang my hat on. "
+                            "After five iterations across just as many languages and frameworks, I became eager to work on something other than a workout tracking app.
+                            At the time, I was working full-time as a mechanical engineer, constantly sniffing out any software opportunities that crossed my path.
+                            Still, I felt I could do more to pave the way toward becoming a full-time software developer.
+                            So, after hours, I came home to build my own software company."
+                        </p>
+
+                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                            "Looking back, I had such naïve ambition — stay tuned, as that’s a recurring theme — but after several months,
+                            I had created something I could hang my hat on."
                         </p>
 
                         <p class="text-lg text-gray-300 leading-relaxed">
                             "My goal was to create a "
+
                             <a
                                 href="https://setapp.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="text-blue-500"
                             >"Setapp"</a>
-                            "-esque company that focussed on making no-code builders for popular NPM packages. The thinking was that not everybody wants to learn "
-                            "how to develop the latest-and-greatest package, but doing just that was something that fueled me. I had my sights on "
+
+                            "-esque company focused on no-code builders for popular NPM packages. The idea was simple: not everyone wants to learn how to use the
+                            latest-and-greatest library, but diving into those challenges was exactly what energized me.
+                            I had my sights set on "
+
                             <a
                                 href="https://d3js.org"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="text-blue-500"
                             >"D3"</a>
+
                             ", "
+
                             <a
                                 href="https://nodered.org"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="text-blue-500"
                             >"Node-RED"</a>
+
                             ", and "
+
                             <a
                                 href="https://threejs.org"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="text-blue-500"
                             >"three.js"</a>
-                            ", but decided to first build a no-code editor for "
+
+                            ", but I started by building a no-code editor for "
+
                             <a
                                 href="https://revealjs.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="text-blue-500"
                             >"Reveal.js"</a>
-                            ". Taking stylistic influence from Apple's approach towards UI/UX design - built on Rust using the Tauri framework with a React frontend: Reveal."
+
+                            ". Taking stylistic influence from Apple's approach towards UI/UX design -
+                            built on Rust using the Tauri framework with a React frontend: Reveal."
                         </p>
 
                     </div>

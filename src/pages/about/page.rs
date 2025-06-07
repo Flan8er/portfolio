@@ -46,7 +46,7 @@ pub fn AboutMe() -> impl IntoView {
                         </p>
 
                         <p class="text-lg text-gray-300 leading-relaxed">
-                            "I got into this by just being curious. I’ve always wanted to understand how these beautiful apps I was seeing were made, and that’s driven me to push the bounds of what I knew how to make, blending design and engineering to get there. For me, it’s not just about these apps solving problems — it’s about building something that feel good to use."
+                            "I got into this by just being curious. I’ve always wanted to understand how these beautiful apps I was seeing were made, and that’s driven me to push the bounds of what I knew how to make, blending design and engineering to get there. For me, it’s not just about these apps solving problems — it’s about building something that feels good to use."
                         </p>
 
                     </div>

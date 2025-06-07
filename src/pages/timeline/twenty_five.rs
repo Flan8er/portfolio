@@ -42,14 +42,7 @@ pub fn TwentyTwentyFive() -> impl IntoView {
 
     view! {
         <Page>
-            <div
-                class="w-full h-full flex items-center justify-center relative"
-                // style=move || {
-                //     let index = active_photo.get();
-                //     let photo = &photos[index as usize];
-                //     format!("background-image: url(\"/img/{}\"); background-size: cover; background-position: center; background-repeat: no-repeat;", photo)
-                // }
-            >
+            <div class="w-full h-full flex items-center justify-center relative">
                 <div
                     class="absolute inset-0 bg-center bg-no-repeat bg-cover opacity-[15%]"
                     style=move || {
@@ -64,24 +57,57 @@ pub fn TwentyTwentyFive() -> impl IntoView {
                         </h2>
 
                         <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                            "The next contract I receieved was from a space startup whos goal was to 3D print solid rocket motors and and reentry capsules. "
-                            "Up until this point I haven't touched much on my previous fulltime job at the KCNSC (Kansas City National Security Campus) "
-                            "- I worked in a group developing high precision 5-Axis "
-                            "DIW 3D printers and the motion control/slicer software for them. We developed a program to perform coordinated motion on complex contoured parts. "
-                            "This new contract was to build a similar software, but with the experience of having done it prior: build it better."
+                            "The next contract I received was from a space startup whose goal was to 3D print solid rocket motors and reentry capsules.
+                            Up until this point, I haven’t said much about my previous full-time role at the KCNSC (Kansas City National Security Campus),
+                            where I worked in a group developing high-precision 5-axis DIW 3D printers and the motion control/slicer software that powered them.
+                            We built a program capable of coordinated motion along complex contoured parts.
+                            This new contract had a similar goal—but with the benefit of prior experience: build it better."
                         </p>
 
                         <p class="text-lg text-gray-300 leading-relaxed">
-                            "Acting as a SME, I lead their internal team to develop a real-time, monitoring and control software for a 6-Axis robot arm MAD 3D printer. "
-                            "This software was the culmination of so many previous experiences: Reveal being built in Tauri was a desperation attempt to get away from Electron - this taught me Rust, "
-                            "indi game development through my knowledge in Rust introduced me to Bevy - and ECS driven game engine built in Rust, and my work at the KCNSC for building motion control software. "
-                            "This new software used all of them. Bevy was used as the backend since entity driven logic translates cleanly to real-world interaction. "
-                            "For the frontend, yet another Rust library was used - Leptos."
+                            "Acting as the SME, I led their internal team to develop a real-time monitoring and control system for a 6-axis robot-arm-based MAD 3D printer.
+                            The software brought together a range of past experiences: Reveal, built in "
+
+                            <a
+                                href="https://v2.tauri.app"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-blue-500"
+                            >"Tauri"</a>
+
+                            ", was originally a desperate attempt to escape "
+
+                            <a
+                                href="https://www.electronjs.org"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-blue-500"
+                            >"Electron"</a>
+
+                            " — that process taught me Rust. Indie game development through Rust introduced me to "
+
+                            <a
+                                href="https://bevy.org"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-blue-500"
+                            >"Bevy"</a>
+
+                            ", an ECS-driven game engine.
+                            My prior work at KCNSC gave me a foundation in motion control systems.
+                            This new project leveraged all of them. Bevy powered the backend — its entity-driven logic mapped well to real-world interactions —
+                            while the frontend was built with yet another Rust library: "
+
+                            <a
+                                href="https://leptos.dev"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-blue-500"
+                            >"Leptos"</a>
+
+                            "."
                         </p>
                     </div>
-
-                    // <div class="w-[600px] h-[500px] relative flex flex-col items-center justify-between rounded-md overflow-hidden">
-                    // </div>
                 </div>
             </div>
         </Page>

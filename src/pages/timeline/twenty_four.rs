@@ -26,21 +26,19 @@ pub fn TwentyTwentyFour() -> impl IntoView {
                         </h2>
 
                         <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                            "After growing confidence through successfully developing such an intricate app, I found myself having the right opportunity to "
-                            "take a true venture into becoming a freelance software developer - this was the start of the goal I worked so hard to achieve. "
-                            "During the first stage of building clientele I was still working my full-time mechanical engineering job. Not too long after, though, "
-                            "with a few contracts under my belt, I was able to run like never before!"
+                            "After gaining confidence from successfully developing such an intricate app,
+                            I finally had the opportunity to fully venture into freelance software development —
+                            this marked the beginning of a goal I had worked so hard to achieve.
+                            During the early stages of building a client base, I was still working full-time as a mechanical engineer.
+                            But not long after, with a few contracts under my belt, I was able to take off like never before!"
                         </p>
 
                         <p class="text-lg text-gray-300 leading-relaxed">
-                            "The contracts were relatively tame, but in numbers it was definetely more work than I initially thought. "
-                            "A few indi-game proof of concepts, web apps and internal company software. I was finally able to operate wide open, "
-                            "explore every avenue and scratch every itch. I even got back to my roots as a Mechanical Engineer on one developing a full carbon fiber steering wheel!"
+                            "The contracts themselves were relatively tame, but in volume, they added up to more work than I had initially expected:
+                            a few indie game proof-of-concepts, web apps, and internal company tools.
+                            I was finally able to operate wide open — exploring every avenue and scratching every itch.
+                            I even returned to my roots as a mechanical engineer on one project, developing a full carbon fiber steering wheel."
                         </p>
-
-                        // <p class="text-lg text-gray-300 leading-relaxed">
-                        //     "(Code)dependent, LimitFab Then, the big one."
-                        // </p>
                     </div>
 
                     <div class="overflow-hidden py-[20px] animation-container">
