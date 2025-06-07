@@ -18,7 +18,7 @@ pub fn TwentyTwentyTwo() -> impl IntoView {
                         <p class="text-lg text-gray-300 leading-relaxed mb-6">
                             "My original path lead me to getting my degree in mechanical engineering — this was my passion since sophomore year of high school.
                             A short internship duing my junior year of college quickly changed that, however.
-                            My mentor stressed the importance, as a Mechainical Engineer, the be able to design machines and then, on top of that,
+                            My mentor stressed the importance, as a Mechainical Engineer, the ability to design machines and then, on top of that,
                             to have the ability to develop the software that runs them. And that single conversation is where this journey began."
                         </p>
 
