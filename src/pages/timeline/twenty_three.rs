@@ -88,8 +88,7 @@ pub fn TwentyTwentyThree() -> impl IntoView {
                                 class="text-blue-500"
                             >"Reveal.js"</a>
 
-                            ". Taking stylistic influence from Apple's approach towards UI/UX design -
-                            built on Rust using the Tauri framework with a React frontend: Reveal."
+                            ". Taking stylistic influence from Apple's approach towards UI/UX design — built on Rust using the Tauri framework with a React frontend: Reveal."
                         </p>
 
                     </div>

@@ -25,7 +25,7 @@ pub fn TwentyTwentyTwo() -> impl IntoView {
                         <p class="text-lg text-gray-300 leading-relaxed">
                             "Getting started in app development I did what any sane person would do — go to Python.
                             My senior year of college consisted of using it for coursework and the occasional spontaneous inspiration to make a workout tracking app.
-                            It wasn't the most beautiful, but to me it was perfect. It was something tangable that I made from nothing.
+                            It wasn't the most beautiful, but to me it was perfect. It was something tangible that I made from nothing.
                             It was enough to say \"This is what I wan't to do.\""
                         </p>
 

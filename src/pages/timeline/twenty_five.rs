@@ -51,7 +51,7 @@ pub fn TwentyTwentyFive() -> impl IntoView {
                             Up until this point, I haven’t said much about my previous full-time role at the KCNSC (Kansas City National Security Campus),
                             where I worked in a group developing high-precision 5-axis DIW 3D printers and the motion control/slicer software that powered them.
                             We built a program capable of coordinated motion along complex contoured parts.
-                            This new contract had a similar goal—but with the benefit of prior experience: build it better."
+                            This new contract had a similar goal — but with the benefit of prior experience: build it better."
                         </p>
 
                         <p class="text-lg text-gray-300 leading-relaxed">
