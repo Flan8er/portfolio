@@ -54,7 +54,7 @@ pub fn TwentyTwentyFive() -> impl IntoView {
                     class="absolute inset-0 bg-center bg-no-repeat bg-cover opacity-[15%]"
                     style=move || {
                         let index = active_photo.get() as usize;
-                        format!("background-image: url(\"/img/{}\");", photos[index])
+                        format!("background-image: url(\"img/{}\");", photos[index])
                     }
                 />
                 <div class="max-w-6xl w-full h-full px-8 flex items-center justify-center z-10">
