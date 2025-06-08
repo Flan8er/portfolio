@@ -86,7 +86,7 @@ pub fn TwentyTwentyFive() -> impl IntoView {
                             ", an ECS-driven game engine.
                             My prior work at KCNSC gave me a foundation in motion control systems.
                             This new project leveraged all of them. Bevy powered the backend — its entity-driven logic mapped well to real-world interactions —
-                            while the frontend was built with yet another Rust library: "
+                            while the front-end was built with yet another Rust library: "
 
                             <a
                                 href="https://leptos.dev"
