@@ -1,84 +1,55 @@
-name: Release to Github Pages
+name: Deploy dist/ to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
-  contents: write # for committing to gh-pages branch.
+  contents: write # for gh-pages branch
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
-  Github-Pages-Release:
-    # timeout-minutes: 10
-
+  deploy:
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    runs-on: ubuntu-latest
+      url: ${{ steps.page_deploy.outputs.page_url }}
 
     steps:
-      - uses: actions/checkout@v4 # repo checkout
-
-      # Install Rust Nightly Toolchain, with Clippy & Rustfmt
-      - name: Install nightly Rust
-        uses: dtolnay/rust-toolchain@nightly
+      # 1) Checkout your repo (with the committed dist/ folder)
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          components: clippy, rustfmt
+          fetch-depth: 1
 
-      - name: Add WASM target
-        run: rustup target add wasm32-unknown-unknown
+      # 2) Copy index.html → 404.html inside dist/
+      - name: Generate SPA fallback (404.html)
+        run: |
+          # ensure dist exists
+          if [ ! -d dist ]; then
+            echo "❌ dist/ not found! Did you forget to commit it?" >&2
+            exit 1
+          fi
+          # copy
+          cp dist/index.html dist/404.html
+          echo "Copied dist/index.html → dist/404.html"
 
-      - name: lint
-        run: cargo clippy & cargo fmt
-
-      # If using tailwind...
-      # - name: Download and install tailwindcss binary
-      #   run: npm install -D tailwindcss && npx tailwindcss -i <INPUT/PATH.css> -o <OUTPUT/PATH.css>  # run tailwind
-
-      - name: Download and install Trunk binary
-        run: wget -qO- https://github.com/trunk-rs/trunk/releases/download/v0.18.4/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xzf-
-
-      - name: Build with Trunk
-        # "${GITHUB_REPOSITORY#*/}" evaluates into the name of the repository
-        # using --public-url something will allow trunk to modify all the href paths like from favicon.ico to repo_name/favicon.ico .
-        # this is necessary for github pages where the site is deployed to username.github.io/repo_name and all files must be requested
-        # relatively as favicon.ico. if we skip public-url option, the href paths will instead request username.github.io/favicon.ico which
-        # will obviously return error 404 not found.
-        run: ./trunk build --release # --public-url "${GITHUB_REPOSITORY#*/}"
-
-      - name: Copy SPA fallback
-        run: cp dist/index.html dist/404.html
-
-      # Deploy to gh-pages branch
-      # - name: Deploy 🚀
-      #   uses: JamesIves/github-pages-deploy-action@v4
-      #   with:
-      #     folder: dist
-
-      # Deploy with Github Static Pages
-
-      - name: Setup Pages
+      # 3) Configure GitHub Pages
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
-          # token:
 
-      - name: Upload artifact
+      # 4) Upload the dist/ folder (now including 404.html)
+      - name: Upload dist folder
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload dist dir
-          path: "./dist"
+          path: ./dist
 
-      - name: Deploy to GitHub Pages 🚀
-        id: deployment
+      # 5) Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: page_deploy
         uses: actions/deploy-pages@v4
