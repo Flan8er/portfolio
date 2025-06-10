@@ -1,20 +1,97 @@
 use bevy::prelude::*;
 use bevy_panorbit_camera::{PanOrbitCamera, PanOrbitCameraPlugin};
-use leptos::prelude::*;
+use leptos::{prelude::*, reactive::wrappers::write::SignalSetter};
 use leptos_bevy_canvas::prelude::*;
+use thaw::{ConfigProvider, Slider};
+use thaw_utils::Model;
+
+#[derive(Event)]
+pub struct WaveformModification {
+    pub amplitude: f32,
+    pub wavelength: f32,
+    pub omega: f32,
+}
 
 #[component]
-pub fn BevyWaveform() -> impl IntoView {
+pub fn BevyWaveform(#[prop(optional)] dev_tools: bool) -> impl IntoView {
+    let waveform_state = RwSignal::new(Waveform::default());
+
+    let (modification_sender, modification_receiver) = event_l2b::<WaveformModification>();
+
+    Effect::new(move |_| {
+        let updated_waveform_request = waveform_state.get();
+
+        modification_sender
+            .send(WaveformModification {
+                amplitude: updated_waveform_request.amplitude,
+                wavelength: updated_waveform_request.wavelength,
+                omega: updated_waveform_request.omega,
+            })
+            .ok();
+    });
+
+    let amplitude_model: Model<f64> = (
+        Signal::derive(move || waveform_state.get().amplitude as f64),
+        SignalSetter::map(move |updated: f64| {
+            let mut new_waveform = waveform_state.get_untracked();
+            new_waveform.amplitude = updated as f32;
+            waveform_state.set(new_waveform);
+        }),
+    )
+        .into();
+    let wavelength_model: Model<f64> = (
+        Signal::derive(move || waveform_state.get().wavelength as f64),
+        SignalSetter::map(move |updated: f64| {
+            let mut new_waveform = waveform_state.get_untracked();
+            new_waveform.wavelength = updated as f32;
+            waveform_state.set(new_waveform);
+        }),
+    )
+        .into();
+    let omega_model: Model<f64> = (
+        Signal::derive(move || waveform_state.get().omega as f64),
+        SignalSetter::map(move |updated: f64| {
+            let mut new_waveform = waveform_state.get_untracked();
+            new_waveform.omega = updated as f32;
+            waveform_state.set(new_waveform);
+        }),
+    )
+        .into();
+
     view! {
-        <main class="flex items-center justify-center overflow-hidden absolute top-0 left-0 right-0 bottom-0 z-[-10]">
+        <main class=move || format!("flex items-center justify-center overflow-hidden absolute inset-0 {}",
+            if dev_tools {
+                "z-[0]"
+            } else {
+                "z-[-10]"
+            }
+        )>
             <div class="w-full h-full">
                 <BevyCanvas
                     init=move || {
-                        init_bevy_app()
+                        init_bevy_app(modification_receiver)
                     }
                 />
             </div>
         </main>
+
+        <Show
+            when=move || dev_tools
+            fallback=|| view! {<></>}
+        >
+            <div class="w-[250px] h-[200px] absolute right-4 top-4 flex flex-col items-start justify-start z-[100]">
+                <ConfigProvider class="w-full h-full bg-accent rounded-[10px] p-2">
+                    <p class="text-xl text-white">"Amplitude"</p>
+                    <Slider value=amplitude_model min=0. max=20./>
+
+                    <p class="text-xl text-white">"Wavelength"</p>
+                    <Slider value=wavelength_model min=1. max=100./>
+
+                    <p class="text-xl text-white">"Omega"</p>
+                    <Slider value=omega_model min=0. max=10./>
+                </ConfigProvider>
+            </div>
+        </Show>
     }
 }
 
@@ -23,7 +100,24 @@ struct Particle {
     position: Vec3,
 }
 
-fn init_bevy_app() -> App {
+#[derive(Resource, Clone)]
+pub struct Waveform {
+    pub amplitude: f32,
+    pub wavelength: f32,
+    pub omega: f32,
+}
+
+impl Default for Waveform {
+    fn default() -> Self {
+        Waveform {
+            amplitude: 2.0,
+            wavelength: 30.0,
+            omega: 0.5,
+        }
+    }
+}
+
+fn init_bevy_app(modification_receiver: BevyEventReceiver<WaveformModification>) -> App {
     let mut app = App::new();
     app.add_plugins(DefaultPlugins.set(WindowPlugin {
         primary_window: Some(Window {
@@ -35,9 +129,14 @@ fn init_bevy_app() -> App {
         }),
         ..default()
     }))
+    .import_event_from_leptos(modification_receiver)
     .insert_resource(ClearColor(Color::NONE))
+    .insert_resource(Waveform::default())
     .add_systems(Startup, (setup_ui, spawn_particles))
-    .add_systems(Update, animate_sine_wave)
+    .add_systems(
+        Update,
+        (handle_modification_request, animate_sine_wave).chain(),
+    )
     .add_plugins(PanOrbitCameraPlugin);
     app
 }
@@ -101,12 +200,29 @@ fn spawn_particles(
     }
 }
 
-fn animate_sine_wave(time: Res<Time>, mut query: Query<(&Particle, &mut Transform)>) {
+pub fn handle_modification_request(
+    mut event_reader: EventReader<WaveformModification>,
+    mut waveform_settings: ResMut<Waveform>,
+) {
+    for event in event_reader.read() {
+        *waveform_settings = Waveform {
+            amplitude: event.amplitude,
+            wavelength: event.wavelength,
+            omega: event.omega,
+        }
+    }
+}
+
+fn animate_sine_wave(
+    time: Res<Time>,
+    mut query: Query<(&Particle, &mut Transform)>,
+    waveform_settings: Res<Waveform>,
+) {
     let t = time.elapsed_secs();
 
-    let amplitude = 2.0; // wave height
-    let wavelength = 30.0; // peak-to-peak distance
-    let omega = 0.5; // wave propagation speed
+    let amplitude = waveform_settings.amplitude; // wave height
+    let wavelength = waveform_settings.wavelength; // peak-to-peak distance
+    let omega = waveform_settings.omega; // wave propagation speed
 
     let k = std::f32::consts::TAU / wavelength; // spatial frequency
     for (particle, mut transform) in &mut query {

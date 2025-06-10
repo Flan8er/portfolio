@@ -1,4 +1,5 @@
 use leptos::prelude::*;
+use web_sys::MouseEvent;
 
 use crate::components::page::Page;
 
@@ -7,7 +8,7 @@ pub fn Appendix() -> impl IntoView {
     view! {
         <Page>
             <div
-                class="w-full h-full flex items-center justify-center relative"
+                class="w-full h-full flex flex-col items-center justify-evenly relative"
             >
                 <div class="max-w-6xl w-full px-8 grid md:grid-cols-2 gap-12 items-center z-10">
                     <div>
@@ -30,8 +31,51 @@ pub fn Appendix() -> impl IntoView {
                         />
                     </div>
                 </div>
+
+                <div class="w-full flex gap-4 justify-center mb-12">
+                    <ProjectFrame title="Waveform Animation" link="waveform" image="waveform.png"/>
+                </div>
             </div>
         </Page>
+    }
+}
+
+#[component]
+pub fn ProjectFrame(title: &'static str, link: &'static str, image: &'static str) -> impl IntoView {
+    let show_link = RwSignal::new(false);
+
+    view! {
+        <div class="flex flex-col rounded-xl p-2 bg-accent w-[250px] h-[250px] items-center justify-between gap-2">
+            <div
+                class="w-full h-full overflow-hidden relative"
+                on:mouseenter=move |_: MouseEvent| show_link.set(true)
+                on:mouseleave=move |_: MouseEvent| show_link.set(false)
+            >
+                <Show
+                    when=move || show_link.get()
+                    fallback=|| view! {<></>}
+                >
+                    <div class="absolute inset-0 flex items-center justify-center backdrop-blur-[16px] backdrop-saturate-[180%] rounded-[16px]">
+                        <a
+                            href=format!("/{}", link)
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="px-4 py-2 bg-foreground rounded-[10px] text-accent"
+                        >
+                            "View"
+                        </a>
+                    </div>
+                </Show>
+
+                <img
+                    src=format!("img/{}", image)
+                    alt=""
+                    class="w-full h-full object-cover rounded-[16px]"
+                />
+            </div>
+
+            <h3>{title}</h3>
+        </div>
     }
 }
 

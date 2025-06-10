@@ -7,7 +7,12 @@ use leptos_router::{
 use leptos_use::{use_scroll, UseScrollReturn};
 use strum::IntoEnumIterator;
 
-use crate::{components::timeline::Timeline, pages::timeline::page::Timeline};
+use crate::{
+    components::timeline::Timeline,
+    pages::{
+        reentry::page::ReentrySimulation, timeline::page::Timeline, waveform::page::WaveformEditor,
+    },
+};
 
 #[component]
 pub fn App() -> impl IntoView {
@@ -17,6 +22,8 @@ pub fn App() -> impl IntoView {
         <Router>
             <Routes fallback=|| "Route not found...">
                 <Route path=path!("") view=Home />
+                <Route path=path!("waveform") view=WaveformEditor />
+                <Route path=path!("reentry") view=ReentrySimulation />
             </Routes>
         </Router>
     }
