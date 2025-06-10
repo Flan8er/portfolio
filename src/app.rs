@@ -22,8 +22,8 @@ pub fn App() -> impl IntoView {
         <Router>
             <Routes fallback=|| "Route not found...">
                 <Route path=path!("") view=Home />
-                <Route path=path!("waveform") view=WaveformEditor />
-                <Route path=path!("reentry") view=ReentrySimulation />
+                <Route path=path!("/waveform") view=WaveformEditor />
+                <Route path=path!("/reentry") view=ReentrySimulation />
             </Routes>
         </Router>
     }
