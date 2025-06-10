@@ -9,6 +9,11 @@ leptos = { version = "0.7", features = ["csr"] }
 leptos_meta = { version = "0.7" }
 leptos_router = { version = "0.7" }
 
+getrandom = { version = "0.3", features = ["wasm_js"] }
+bevy = { version = "0.15" }
+leptos-bevy-canvas = "0.2.0"
+bevy_panorbit_camera = "0.21.1"
+
 leptos_icons = { version = "0.5" }
 icondata = { version = "0.5" }                                      # https://carloskiki.github.io/icondata/
 leptos-use = { version = "0.15.7", features = ["use_window_size"] }
