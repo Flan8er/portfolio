@@ -18,7 +18,7 @@ concurrency:
 
 jobs:
   Github-Pages-Release:
-    timeout-minutes: 10
+    # timeout-minutes: 10
 
     environment:
       name: github-pages
