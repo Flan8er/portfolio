@@ -33,7 +33,7 @@ pub fn Appendix() -> impl IntoView {
                 </div>
 
                 <div class="w-full flex gap-4 justify-center mb-12">
-                    // <ProjectFrame title="Waveform Animation" link="waveform" image="waveform.png"/>
+                    <ProjectFrame title="Waveform Animation" link="waveform" image="waveform.png"/>
                 </div>
             </div>
         </Page>
