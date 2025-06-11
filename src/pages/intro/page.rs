@@ -1,8 +1,11 @@
 use leptos::prelude::*;
 
 use crate::{
-    components::{bevy_waveform::BevyWaveform, page::Page},
-    pages::intro::{arrow::AnimatedChevron, socials::SocialIcons},
+    components::page::Page,
+    pages::{
+        intro::{arrow::AnimatedChevron, socials::SocialIcons},
+        waveform::page::BevyWaveform,
+    },
 };
 
 #[component]

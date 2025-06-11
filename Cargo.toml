@@ -22,6 +22,3 @@ strum = "0.26"
 strum_macros = "0.26"
 thaw = { version = "0.4.7", features = ["csr"] }
 thaw_utils = "0.1.2"
-# reentry_simulation = { git = "https://github.com/Flan8er/bevy_galaga", rev = "514498a850e683e1896be1d1c1ec40a4f9662abd" }
-# reentry_simulation = { path = "../Vertec/bevy_galaga" }
-# spaceship_game = { path = "../Vertec/spaceship_game" }

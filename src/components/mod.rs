@@ -1,4 +1,3 @@
-pub mod bevy_waveform;
 pub mod navigator;
 pub mod page;
 pub mod scroll;
