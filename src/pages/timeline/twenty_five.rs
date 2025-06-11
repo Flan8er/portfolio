@@ -40,6 +40,7 @@ pub fn TwentyTwentyFive() -> impl IntoView {
                         format!("background-image: url(\"img/{}\");", photos[index])
                     }
                 />
+                <div class="h-full min-w-[100px] w-[100px]"/>
                 <div class="max-w-6xl w-full h-full px-8 flex items-center justify-center z-10">
                     <div>
                         <h2 class="text-5xl font-bold mb-8 leading-tight bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -99,6 +100,7 @@ pub fn TwentyTwentyFive() -> impl IntoView {
                         </p>
                     </div>
                 </div>
+                <div class="h-full min-w-[100px] w-[100px]"/>
             </div>
         </Page>
     }

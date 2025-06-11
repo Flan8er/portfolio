@@ -10,8 +10,11 @@ pub fn Appendix() -> impl IntoView {
             <div
                 class="w-full h-full flex flex-col items-center justify-evenly relative"
             >
+
                 <div class="max-w-6xl w-full px-8 grid md:grid-cols-2 gap-12 items-center z-10">
+
                     <div>
+                        <div class="min-w-[100px] w-[100px]"/>
                         <p class="text-lg text-gray-300 leading-relaxed mb-6">
                             "I just want to say a thank you if you've made it this far!
                             Software develpment is a real passion of mine and it's great to be able to share it
@@ -29,6 +32,7 @@ pub fn Appendix() -> impl IntoView {
                                    transform transition-transform duration-700 ease-out
                                    scale-100 hover:scale-105"
                         />
+                        <div class="min-w-[100px] w-[100px]"/>
                     </div>
                 </div>
 

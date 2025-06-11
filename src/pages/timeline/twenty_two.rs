@@ -9,6 +9,7 @@ pub fn TwentyTwentyTwo() -> impl IntoView {
             <div
                 class="w-full h-full flex items-center justify-center relative bg-gradient-to-b from-[rgba(219,39,119,0.1)] to-[rgba(201,42,148,0.125)]"
             >
+                <div class="h-full min-w-[100px] w-[100px]"/>
                 <div class="max-w-6xl w-full px-8 grid md:grid-cols-2 gap-12 items-center z-10">
                     <div>
                         <h2 class="text-5xl font-bold mb-8 leading-tight bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -39,6 +40,7 @@ pub fn TwentyTwentyTwo() -> impl IntoView {
                         />
                     </div>
                 </div>
+                <div class="h-full min-w-[100px] w-[100px]"/>
             </div>
         </Page>
     }
