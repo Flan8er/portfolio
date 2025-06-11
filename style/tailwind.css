@@ -49,6 +49,13 @@
             "rlig" 1,
             "calt" 1;
     }
+    canvas {
+        border: none;
+        outline: none;
+        padding: 0;
+        margin: 0;
+        display: block;
+    }
 }
 
 @layer utilities {

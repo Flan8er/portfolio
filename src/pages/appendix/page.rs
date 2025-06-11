@@ -32,8 +32,10 @@ pub fn Appendix() -> impl IntoView {
                     </div>
                 </div>
 
-                <div class="w-full flex gap-4 justify-center mb-12">
+                <div class="w-full flex flex-col md:flex-row gap-4 justify-center items-center mb-12">
                     <ProjectFrame title="Waveform Animation" link="waveform" image="waveform.png"/>
+                    <ProjectFrame title="Reentry Simulation" link="reentry" image="reentry_simulation.png"/>
+                    <ProjectFrame title="Galaga" link="galaga" image="galaga_gameplay.png"/>
                 </div>
             </div>
         </Page>

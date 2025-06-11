@@ -10,7 +10,8 @@ use strum::IntoEnumIterator;
 use crate::{
     components::timeline::Timeline,
     pages::{
-        reentry::page::ReentrySimulation, timeline::page::Timeline, waveform::page::WaveformEditor,
+        galaga::page::GalagaGame, reentry::page::ReentrySimulation, timeline::page::Timeline,
+        waveform::page::WaveformEditor,
     },
 };
 
@@ -24,6 +25,7 @@ pub fn App() -> impl IntoView {
                 <Route path=path!("") view=Home />
                 <Route path=path!("/waveform") view=WaveformEditor />
                 <Route path=path!("/reentry") view=ReentrySimulation />
+                <Route path=path!("/galaga") view=GalagaGame />
             </Routes>
         </Router>
     }
