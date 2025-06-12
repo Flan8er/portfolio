@@ -80,7 +80,6 @@ pub fn TwentyTwentyFour() -> impl IntoView {
                         </div>
                     </div>
                 </div>
-                <div class="h-full min-w-[100px] w-[100px]"/>
             </div>
         </Page>
     }

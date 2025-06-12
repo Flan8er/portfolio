@@ -100,7 +100,6 @@ pub fn TwentyTwentyFive() -> impl IntoView {
                         </p>
                     </div>
                 </div>
-                <div class="h-full min-w-[100px] w-[100px]"/>
             </div>
         </Page>
     }

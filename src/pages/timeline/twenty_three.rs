@@ -23,20 +23,20 @@ pub fn TwentyTwentyThree() -> impl IntoView {
                 class="w-full h-full flex items-center justify-center relative bg-gradient-to-b from-[rgba(201,42,148,0.125)] to-[rgba(183,46,176,0.15)]"
             >
                 <div class="h-full min-w-[100px] w-[100px]"/>
-                <div class="max-w-6xl w-full px-8 grid md:grid-cols-2 gap-12 items-center z-10">
+                <div class="max-w-6xl w-full px-8 grid lg:grid-cols-2 lg:gap-12 items-center z-10">
                     <div>
-                        <h2 class="text-5xl font-bold mb-8 leading-tight bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        <h2 class="text-5xl font-bold mb-2 lg:mb-8 leading-tight bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                             "The Big \"Reveal\""
                         </h2>
 
-                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                        <p class="text-lg text-gray-300 leading-relaxed lg:mb-6">
                             "After five iterations across just as many languages and frameworks, I became eager to work on something other than a workout tracking app.
                             At the time, I was working full-time as a mechanical engineer, constantly sniffing out any software opportunities that crossed my path.
                             Still, I felt I could do more to pave the way toward becoming a full-time software developer.
                             So, after hours, I came home to build my own software company."
                         </p>
 
-                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                        <p class="text-lg text-gray-300 leading-relaxed lg:mb-6">
                             "Looking back, I had such naïve ambition — stay tuned, as that’s a recurring theme — but after several months,
                             I had created something I could hang my hat on."
                         </p>
@@ -91,10 +91,9 @@ pub fn TwentyTwentyThree() -> impl IntoView {
 
                             ". Taking stylistic influence from Apple's approach towards UI/UX design — built on Rust using the Tauri framework with a React front-end: Reveal."
                         </p>
-
                     </div>
 
-                    <div class="w-[600px] h-[500px] relative flex flex-col items-center justify-between rounded-md overflow-hidden">
+                    <div class="w-full h-[500px] relative flex flex-col items-center justify-between rounded-md overflow-hidden">
                         <div class="absolute inset-0">
                             <img
                                 src={
@@ -106,12 +105,11 @@ pub fn TwentyTwentyThree() -> impl IntoView {
                             />
                         </div>
 
-                        <div class="relative z-10 mt-auto">
+                        <div class="z-10 mt-auto">
                             <Navigator index=active_photo length=photos.len() />
                         </div>
                     </div>
                 </div>
-                <div class="h-full min-w-[100px] w-[100px]"/>
             </div>
         </Page>
     }
